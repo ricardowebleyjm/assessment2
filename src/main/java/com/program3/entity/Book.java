@@ -1,31 +1,26 @@
-package com.program3;
+package com.program3.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Book implements BookImpl {
+public class Book{
     private String bookTitle;
     private String author;
-    private int isbn;
+    private String isbn;
     private String publisher;
     private int releaseYear;
     private List<Book> bookList = new ArrayList<>();
 
-    public Book (){
-    }
+    public Book(){}
 
-    public Book(String bookTitle, String author, int isbn, String publisher, int releaseYear) {
+    public Book(String bookTitle, String author, String isbn, String publisher, int releaseYear) {
         this.bookTitle = bookTitle;
         this.author = author;
         this.isbn = isbn;
         this.publisher = publisher;
         this.releaseYear = releaseYear;
-       // this.initialBooks();
     }
 
-    public void addBook(Book book){
-        bookList.add(book);
-    }
 
     public String getBookTitle() {
         return bookTitle;
@@ -43,11 +38,11 @@ public class Book implements BookImpl {
         this.author = author;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -67,40 +62,8 @@ public class Book implements BookImpl {
         this.releaseYear = releaseYear;
     }
 
-    /**
-     *
-     */
-    @Override
-    public void displayBook() {
 
-    }
 
-    /**
-     *
-     */
-    @Override
-    public void searchBook() {
-
-    }
-
-    /**
-     *
-     */
-    @Override
-    public void initialBooks() {
-        Book book1 = new Book("Hello Java", "Ricardo Webley", 2233453, "Mike", 2023);
-        Book book2 = new Book("Hello ", "Ricardo Webley", 2233453, "Mike", 2023);
-
-        Book b = new Book();
-        b.addBook(book1);
-        b.addBook(book2);
-    }
-
-    @Override
-    public String toString() {
-       return "Book Title: " + bookTitle + "\n Author: "+ author + "\n publisher: " +
-               publisher + "\n Release Year: " + releaseYear + "\n";
-    }
 
     public void printBooks(){
         if (bookList.isEmpty()) {
@@ -113,5 +76,14 @@ public class Book implements BookImpl {
         }
     }
 
+    public void addBook(Book book){
+        bookList.add(book);
+    }
+
+    @Override
+    public String toString() {
+        return "Title: " + getBookTitle() + ", Author: " + getAuthor() + ", ISBN: " + getIsbn() + ", Publisher: " +
+                getPublisher() + ", Release Year: " + getReleaseYear();
+    }
 
 }

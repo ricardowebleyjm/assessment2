@@ -7,15 +7,15 @@ public  abstract class Fibonacci{
     protected Map<Integer, Integer> memoCache;
 
     /**
-     * Constructs a new instance of the abstract Fibonacci calculator class with an
-     * empty memoization map.
+     * Constructs a new instance of the abstract Fibonacci class with an
+     * empty map to initialise memoCache with the base cases.
      */
     public Fibonacci() {
         memoCache = new HashMap<>();
+        // Initialise memoCache with the base cases
         memoCache.put(0, 0);
         memoCache.put(1, 1);
     }
-
 
     /**
      * Calculates the nth number in the Fibonacci sequence.
@@ -24,12 +24,15 @@ public  abstract class Fibonacci{
      * @return The nth number in the Fibonacci sequence
      */
     public int calculate(int number) {
+        // If the memoization cache already contains the value for the number
+        // that was passed in, return it
         if (memoCache.containsKey(number)) {
             return memoCache.get(number);
         }
-
+        // Create an array of type int to store the result
+        // Calculate the value for the given number in the Fibonacci sequence
         int result = calculate(number - 1) + calculate(number - 2);
-        memoCache.put(number, result);
+        memoCache.put(number, result); // Add the calculated index and value in the cache
         return result;
     }
 

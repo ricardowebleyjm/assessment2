@@ -21,5 +21,6 @@ public class Main {
     for (String item : array) {
         System.out.print(item + ",");
     }
-}
+
+    }
 }
