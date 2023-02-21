@@ -63,26 +63,9 @@ public class Book{
     }
 
 
-
-
-    public void printBooks(){
-        if (bookList.isEmpty()) {
-            System.out.println("No books available");
-            return;
-        }
-
-        for(Book book: bookList){
-            System.out.println(book.toString());
-        }
-    }
-
-    public void addBook(Book book){
-        bookList.add(book);
-    }
-
     @Override
     public String toString() {
-        return "Title: " + getBookTitle() + ", Author: " + getAuthor() + ", ISBN: " + getIsbn() + ", Publisher: " +
+        return "Book Title: " + getBookTitle() + ", Author: " + getAuthor() + ", ISBN: " + getIsbn() + ", Publisher: " +
                 getPublisher() + ", Release Year: " + getReleaseYear();
     }
 

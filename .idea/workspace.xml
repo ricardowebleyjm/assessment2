@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="149416ba-9603-44ca-8eba-1f1e790e26ce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/program3/BookInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/program3/BookList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program1/Fibonacci.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program1/Fibonacci.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program1/MemoizedFibonacci.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program1/FibonacciCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program2/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program2/Sorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program2/Sorter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/entity/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/BookImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/BookInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/BookInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/BookList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/BookList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program5/forms/ATMForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program5/forms/ATMForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/entity/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +133,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.com.program3.Main" />
-        <item itemvalue="Application.com.program1.Main" />
         <item itemvalue="Application.ATMForm" />
         <item itemvalue="Application.com.program2.Main" />
         <item itemvalue="Application.AtmForm" />
@@ -180,18 +172,13 @@
           <option name="timeStamp" value="1" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/program3/entity/Book.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/program3/Main.java</url>
           <line>6</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/program3/BookList.java</url>
-          <line>47</line>
+          <line>53</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
