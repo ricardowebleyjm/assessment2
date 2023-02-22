@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="149416ba-9603-44ca-8eba-1f1e790e26ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/program4/IWords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/program4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/program4/Object.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/program4/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/program4/Verb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/BookInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/BookInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/BookList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/BookList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/program3/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/program3/entity/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,7 +65,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.com.program3.Main">
+  <component name="RunManager" selected="Application.com.program4.Main">
     <configuration name="ATMForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.program5.forms.ATMForm" />
       <module name="Assessment2" />
@@ -84,19 +85,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.program5.forms.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.program1.Main" />
-      <module name="Assessment2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.program1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,8 +118,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.program4.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.program4.Main" />
+      <module name="Assessment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.program4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.program4.Main" />
         <item itemvalue="Application.com.program3.Main" />
         <item itemvalue="Application.ATMForm" />
         <item itemvalue="Application.com.program2.Main" />
@@ -173,12 +175,12 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/program3/Main.java</url>
-          <line>6</line>
+          <line>7</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/program3/BookList.java</url>
-          <line>53</line>
+          <line>54</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
