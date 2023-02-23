@@ -4,8 +4,6 @@
  */
 package com.program5.forms;
 
-import com.program5.Account;
-import javax.swing.JOptionPane;
 import java.util.ArrayList;
 
 /**
@@ -13,15 +11,15 @@ import java.util.ArrayList;
  * @author WebleyR
  */
 public class Login extends javax.swing.JFrame {
-    private static ArrayList<Account> accounts = new ArrayList<>();
+    // private static ArrayList<Account> accounts = new ArrayList<>();
     /**
      * Creates new form Login
      */
-    public Login() {
-        initComponents();
-        accounts.add(new Account(1000, 1000, 1000.0));
-    }
-    
+//    public Login() {
+//        initComponents();
+//        accounts.add(new Account(1000, 1000, 1000.0));
+//    }
+//
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,7 +188,7 @@ public class Login extends javax.swing.JFrame {
         this.txtBoxPassword.setText("");
         this.txtBoxCardNumber.setText("");
         
-        var accounts = new Account(cardNumToInt, pinToInt, 1000.00);
+        //var accounts = new Account(cardNumToInt, pinToInt, 1000.00);
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
