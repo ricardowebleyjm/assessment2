@@ -3,7 +3,7 @@ package com.program5.entity;
 import com.program5.exceptions.InsufficientFundsException;
 
 public class SavingAccount extends Account{
-    private final double WITHDRAWAL_FEE = 1.0;
+    private final double WITHDRAWAL_FEE = 5.0;
 
     public SavingAccount(double balance) {
         super("Saving", balance);
@@ -15,7 +15,6 @@ public class SavingAccount extends Account{
     public void deposit(double amount) {
         double newBalance = getBalance() + amount;
         setBalance(newBalance);
-        System.out.println("$" + amount + " deposited into savings account. New savings balance: $" + getBalance());
     }
 
     /**

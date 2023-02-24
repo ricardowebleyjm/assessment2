@@ -125,6 +125,8 @@ public class ATMPanel extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        getAccessibleContext().setAccessibleName("ATM Panel");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 

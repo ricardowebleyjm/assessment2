@@ -3,7 +3,7 @@ package com.program5.entity;
 import com.program5.exceptions.InsufficientFundsException;
 
 public class CheckingAccount extends Account{
-    private final double TRANSACTION_FEE = 0.5;
+    private final double TRANSACTION_FEE = 2.0;
 
     public CheckingAccount(double balance) {
         super("Checking", balance);
