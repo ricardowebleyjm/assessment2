@@ -20,6 +20,7 @@ public class SavingAccount extends Account{
 
     /**
      * @param amount
+     * @throws com.program5.exceptions.InsufficientFundsException
      */
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {

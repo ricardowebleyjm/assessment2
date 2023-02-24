@@ -51,6 +51,10 @@ public abstract  class Account {
         this.transactionHistory = transactionHistory;
     }
 
+    public void transfer(Account account, double amount) throws InsufficientFundsException {
+        withdraw(amount);
+        account.deposit(amount);
+    }
     public abstract void deposit(double amount);
 
     public abstract void withdraw(double amount) throws InsufficientFundsException;
