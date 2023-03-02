@@ -7,6 +7,7 @@ package com.program5.forms;
 import com.program5.entity.CheckingAccount;
 import com.program5.entity.SavingAccount;
 import com.program5.exceptions.InsufficientFundsException;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -86,6 +87,11 @@ public class WithdrawForm extends javax.swing.JFrame {
         txtWithdrawAmt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtWithdrawAmtActionPerformed(evt);
+            }
+        });
+        txtWithdrawAmt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtWithdrawAmtKeyPressed(evt);
             }
         });
 
@@ -186,6 +192,16 @@ public class WithdrawForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtWithdrawAmtActionPerformed
 
+    private void txtWithdrawAmtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWithdrawAmtKeyPressed
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+            txtWithdrawAmt.setEditable(true);
+        }else{
+             txtWithdrawAmt.setEditable(false);
+        }
+    }//GEN-LAST:event_txtWithdrawAmtKeyPressed
+
+         
+      
     /**
      * @param args the command line arguments
      */

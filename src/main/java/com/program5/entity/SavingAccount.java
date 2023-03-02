@@ -6,7 +6,7 @@ public class SavingAccount extends Account{
     private final double WITHDRAWAL_FEE = 5.0;
 
     public SavingAccount(double balance) {
-        super("Saving", balance);
+        super("Savings", balance);
     }
     /**
      * @param amount

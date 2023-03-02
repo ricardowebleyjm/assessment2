@@ -7,6 +7,7 @@ package com.program5.forms;
 import com.program5.entity.CheckingAccount;
 import com.program5.entity.SavingAccount;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 
@@ -62,6 +63,11 @@ public class DepositForm extends javax.swing.JFrame {
         txtDepositAmt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDepositAmtActionPerformed(evt);
+            }
+        });
+        txtDepositAmt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDepositAmtKeyPressed(evt);
             }
         });
 
@@ -173,14 +179,21 @@ public class DepositForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please select an account");
         }
 
-       
-
-
     }//GEN-LAST:event_buttonDepositActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         this.dispose(); 
     }//GEN-LAST:event_buttonCancelActionPerformed
+
+    
+    private void txtDepositAmtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDepositAmtKeyPressed
+ 
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+            txtDepositAmt.setEditable(true);
+        }else{
+             txtDepositAmt.setEditable(false);
+        }
+    }//GEN-LAST:event_txtDepositAmtKeyPressed
 
     /**
      * @param args the command line arguments
