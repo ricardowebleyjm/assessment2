@@ -47,6 +47,7 @@ public class ATMPanel extends javax.swing.JFrame {
         buttonDeposit = new javax.swing.JButton();
         buttonWithdraw = new javax.swing.JButton();
         buttonTransfer = new javax.swing.JButton();
+        buttonTrasactions = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -93,25 +94,39 @@ public class ATMPanel extends javax.swing.JFrame {
             }
         });
 
+        buttonTrasactions.setBackground(new java.awt.Color(0, 153, 255));
+        buttonTrasactions.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonTrasactions.setForeground(new java.awt.Color(255, 255, 255));
+        buttonTrasactions.setText("TRANSACTIONS");
+        buttonTrasactions.setToolTipText("Deporit");
+        buttonTrasactions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTrasactionsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelOption, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelOption, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonWithdraw))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(buttonTransfer)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(buttonTransfer)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonTrasactions))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonWithdraw)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,9 +137,11 @@ public class ATMPanel extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(buttonTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTrasactions, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,6 +180,11 @@ public class ATMPanel extends javax.swing.JFrame {
         var transferForm = new TransferForm(this.savingsAccount, this.checkingAccount);
         transferForm.setVisible(true); 
     }//GEN-LAST:event_buttonTransferActionPerformed
+
+    private void buttonTrasactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTrasactionsActionPerformed
+        var transactionForm = new TransactionForm(this.savingsAccount, this.checkingAccount);
+        transactionForm.setVisible(true);
+    }//GEN-LAST:event_buttonTrasactionsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +233,7 @@ public class ATMPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDeposit;
     private javax.swing.JButton buttonTransfer;
+    private javax.swing.JButton buttonTrasactions;
     private javax.swing.JButton buttonWithdraw;
     private javax.swing.JLabel labelOption;
     private javax.swing.JPanel mainPanel;

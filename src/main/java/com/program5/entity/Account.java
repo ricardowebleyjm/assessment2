@@ -43,6 +43,10 @@ public abstract  class Account {
         this.accountType = accountType;
     }
 
+    public void addTransaction(String transactionType, double amount, String fromAccount) {
+        Transaction transaction = new Transaction(transactionType, amount, fromAccount);
+        transactionHistory.add(transaction);
+    }
     public ArrayList<Transaction> getTransactionHistory() {
         return transactionHistory;
     }
@@ -54,6 +58,7 @@ public abstract  class Account {
     public void transfer(Account account, double amount) throws InsufficientFundsException {
         withdraw(amount);
         account.deposit(amount);
+        addTransaction("Transfer", amount, account.getAccountType());
     }
     public abstract void deposit(double amount);
 

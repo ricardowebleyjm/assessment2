@@ -16,7 +16,7 @@ public class CheckingAccount extends Account{
     public void deposit(double amount) {
         double newBalance = getBalance() + amount;
         setBalance(newBalance);
-        System.out.println("$" + amount + " deposited into checking account. New checking balance: $" + getBalance());
+        addTransaction("Deposit", amount, getAccountType());
     }
 
     /**
@@ -31,6 +31,7 @@ public class CheckingAccount extends Account{
         } else {
             double newBalance = getBalance() - totalWithdrawAmount;
             setBalance(newBalance);
+            addTransaction("Withdraw", amount, getAccountType());
         }
     }
 }

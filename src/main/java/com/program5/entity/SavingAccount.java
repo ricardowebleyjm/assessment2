@@ -15,6 +15,7 @@ public class SavingAccount extends Account{
     public void deposit(double amount) {
         double newBalance = getBalance() + amount;
         setBalance(newBalance);
+        addTransaction("Deposit", amount, getAccountType());
     }
 
     /**
@@ -29,7 +30,8 @@ public class SavingAccount extends Account{
         } else {
             double newBalance = getBalance() - totalWithdrawAmount;
             setBalance(newBalance);
+            addTransaction("Withdraw", amount, getAccountType());
         }
     }
-
+    
 }
