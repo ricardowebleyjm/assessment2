@@ -8,9 +8,7 @@ public class SavingAccount extends Account{
     public SavingAccount(double balance) {
         super("Savings", balance);
     }
-    /**
-     * @param amount
-     */
+
     @Override
     public void deposit(double amount) {
         double newBalance = getBalance() + amount;
@@ -18,10 +16,6 @@ public class SavingAccount extends Account{
         addTransaction("Deposit", amount, getAccountType());
     }
 
-    /**
-     * @param amount
-     * @throws com.program5.exceptions.InsufficientFundsException
-     */
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
         double totalWithdrawAmount = amount + WITHDRAWAL_FEE;

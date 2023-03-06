@@ -9,9 +9,6 @@ public class CheckingAccount extends Account{
         super("Checking", balance);
     }
 
-    /**
-     * @param amount
-     */
     @Override
     public void deposit(double amount) {
         double newBalance = getBalance() + amount;
@@ -19,10 +16,6 @@ public class CheckingAccount extends Account{
         addTransaction("Deposit", amount, getAccountType());
     }
 
-    /**
-     * @param amount
-     * @throws InsufficientFundsException
-     */
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
         double totalWithdrawAmount = amount + TRANSACTION_FEE;
