@@ -43,6 +43,13 @@ public abstract  class Account {
         this.accountType = accountType;
     }
 
+
+    /**
+     * Adds a new transaction to this account's transaction history.
+     * @param transactionType the type of transaction (e.g., "Withdrawal", "Deposit", "Transfer")
+     * @param amount the amount of the transaction
+     * @param fromAccount the account from which the transaction was initiated
+     */
     public void addTransaction(String transactionType, double amount, String fromAccount) {
         Transaction transaction = new Transaction(transactionType, amount, fromAccount);
         transactionHistory.add(transaction);
@@ -55,12 +62,29 @@ public abstract  class Account {
         this.transactionHistory = transactionHistory;
     }
 
+    /**
+     * Transfers a specified amount from an account to another account.
+     * @param account the account to transfer funds to
+     * @param amount the amount to transfer
+     * @throws InsufficientFundsException if this account has insufficient funds to complete the transfer
+     */
     public void transfer(Account account, double amount) throws InsufficientFundsException {
         withdraw(amount);
         account.deposit(amount);
         addTransaction("Transfer", amount, account.getAccountType());
     }
+
+    /**
+     * Deposits a specified amount into an account.
+     *
+     * @param amount the amount to deposit
+     */
     public abstract void deposit(double amount);
 
+    /**
+     * Withdraws a specified amount from an account.
+     * @param amount the amount to withdraw
+     * @throws InsufficientFundsException if this account has insufficient funds to complete the withdrawal
+     */
     public abstract void withdraw(double amount) throws InsufficientFundsException;
 }

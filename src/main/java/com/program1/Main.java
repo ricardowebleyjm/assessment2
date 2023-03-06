@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Use a FibonacciCalculator object to perform the calculations.
-        Fibonacci fibonacci = new FibonacciCalculator();
+        // Use a FibonacciChecker object to perform the calculations.
+        Fibonacci fibonacci = new FibonacciChecker();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println();System.out.println("Welcome, Please select a choice below: ");

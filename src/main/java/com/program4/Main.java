@@ -7,7 +7,8 @@ public class Main {
         var verb = new Verb();
         var object = new Object();
 
-        String sentence = subject.getChoices()+ " " + verb.getChoices() + " " + object.getChoices() + ".";
+        String sentence = subject.getChoices()+ " " +
+                verb.getChoices() + " " + object.getChoices() + ".";
 
         // Output
         System.out.println(sentence);

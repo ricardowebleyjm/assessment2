@@ -1,6 +1,6 @@
 package com.program1;
 
-public class FibonacciCalculator extends Fibonacci{
+public class FibonacciChecker extends Fibonacci{
     /**
      * Calculates a range of numbers in the Fibonacci sequence.
      *
