@@ -32,9 +32,10 @@ public class TransactionForm extends javax.swing.JFrame {
        this.saving = saving;
        this.checking = checking;
        
+       // Loads transaction data in data table
        loadData();
     }
-    
+
     private void loadData(){
   
        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -42,17 +43,32 @@ public class TransactionForm extends javax.swing.JFrame {
        model.addColumn("Transaction Type");
        model.addColumn("Transaction Amount");
        model.addColumn("Account Balance");
+       model.addColumn("Fee");
        model.addColumn("Account");
-           model.addColumn("Date & Time");
+       model.addColumn("Date & Time");
        
         for(Transaction transaction: saving.getTransactionHistory()){   
             
-            model.addRow(new Object[]{transaction.getTransactionType(),
-                    transaction.getAmount(),
-                    saving.getBalance(),
-                    transaction.getFromAccount(), 
-                    transaction.getTimestamp()} );
+            model.addRow(new Object[]{
+                transaction.getTransactionType(),
+                transaction.getAmount(),
+                saving.getBalance(),
+                transaction.getFee(),
+                transaction.getFromAccount(), 
+                transaction.getTimestamp()} );
         }
+        
+        for(Transaction transaction: checking.getTransactionHistory()){   
+            
+            model.addRow(new Object[]{
+                transaction.getTransactionType(),
+                transaction.getAmount(),
+                checking.getBalance(),
+                transaction.getFee(),
+                transaction.getFromAccount(), 
+                transaction.getTimestamp()} );
+        }
+                
         jTable1.setModel(model);
          
             
@@ -71,6 +87,8 @@ public class TransactionForm extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Transactions");
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

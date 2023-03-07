@@ -3,7 +3,7 @@ package com.program5.entity;
 import com.program5.exceptions.InsufficientFundsException;
 
 public class SavingAccount extends Account{
-    private final double WITHDRAWAL_FEE = 5.0;
+    //private final double WITHDRAWAL_FEE = 5.0;
 
     public SavingAccount(double balance) {
         super("Savings", balance);
@@ -18,13 +18,13 @@ public class SavingAccount extends Account{
 
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
-        double totalWithdrawAmount = amount + WITHDRAWAL_FEE;
+        double totalWithdrawAmount = amount + getWithdrawlFee();
         if (totalWithdrawAmount > getBalance()) {
             throw new InsufficientFundsException("Insufficient funds in savings account. Current balance: $" + getBalance());
         } else {
             double newBalance = getBalance() - totalWithdrawAmount;
             setBalance(newBalance);
-            addTransaction("Withdraw", amount, getAccountType());
+            addTransaction("Withdraw", amount, getAccountType(), getWithdrawlFee());
         }
     }
     

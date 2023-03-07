@@ -9,6 +9,9 @@ public abstract  class Account {
     private double balance;
     String accountType;
     private static int nextAccountNumber = 10001;
+    private static double transferFee = 5.00;
+    private static double withdrawlFee = 3.50;
+    
     private ArrayList<Transaction> transactionHistory;
 
     public Account(String accountType, double balance) {
@@ -43,6 +46,22 @@ public abstract  class Account {
         this.accountType = accountType;
     }
 
+    public double getTransferFee() {
+        return transferFee;
+    }
+
+    public void setTransferFee(double transferFee) {
+        Account.transferFee = transferFee;
+    }
+
+    public double getWithdrawlFee() {
+        return withdrawlFee;
+    }
+
+    public void setWithdrawlFee(double withdrawlFee) {
+        Account.withdrawlFee = withdrawlFee;
+    }
+
 
     /**
      * Adds a new transaction to this account's transaction history.
@@ -54,10 +73,27 @@ public abstract  class Account {
         Transaction transaction = new Transaction(transactionType, amount, fromAccount);
         transactionHistory.add(transaction);
     }
+    
+    /**
+     *
+     * @param transactionType
+     * @param amount
+     * @param fromAccount
+     * @param fee
+     */
+    public void addTransaction(String transactionType, double amount, String fromAccount, double fee) {
+        Transaction transaction = new Transaction(transactionType, amount, fromAccount, fee);
+        transactionHistory.add(transaction);
+    }
+    
     public ArrayList<Transaction> getTransactionHistory() {
         return transactionHistory;
     }
 
+    /**
+     *
+     * @param transactionHistory
+     */
     public void setTransactionHistory(ArrayList<Transaction> transactionHistory) {
         this.transactionHistory = transactionHistory;
     }
@@ -71,7 +107,7 @@ public abstract  class Account {
     public void transfer(Account account, double amount) throws InsufficientFundsException {
         withdraw(amount);
         account.deposit(amount);
-        addTransaction("Transfer", amount, account.getAccountType());
+        addTransaction("Transfer", amount, account.getAccountType(), transferFee);
     }
 
     /**

@@ -8,7 +8,16 @@ public class Transaction {
     private String transactionType;
     private  String  fromAccount;
     private String timestamp;
+    private double fee;
 
+    public Transaction(String transactionType, double amount, String fromAccount, double fee) {
+        this.transactionType = transactionType;
+        this.amount = amount;
+        this.fromAccount = fromAccount;
+        this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        this.fee = fee;
+    }
+    
     public Transaction(String transactionType, double amount, String fromAccount) {
         this.transactionType = transactionType;
         this.amount = amount;
@@ -46,5 +55,13 @@ public class Transaction {
 
     public void setTransactionType(String transactionType) {
         this.transactionType = transactionType;
+    }
+
+    public double getFee() {
+        return fee;
+    }
+
+    public void setFee(double fee) {
+        this.fee = fee;
     }
 }
