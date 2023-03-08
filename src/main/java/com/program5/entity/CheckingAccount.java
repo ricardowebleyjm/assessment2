@@ -4,6 +4,12 @@ import com.program5.exceptions.InsufficientFundsException;
 
 public class CheckingAccount extends Account{
 
+    /**
+     * Constructor for the CheckingAccount class, takes a double balance as a parameter and calls
+     * the constructor of the superclass (Account) with the account type set to "Checking" and the balance set to
+     * the provided value.
+     * @param balance
+     */
     public CheckingAccount(double balance) {
         super("Checking", balance);
     }

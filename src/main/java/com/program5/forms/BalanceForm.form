@@ -150,7 +150,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="this.getSavingBalance()" type="code"/>
+              <Connection code="Double.toString(saving.getBalance())&#xd;&#xa;" type="code"/>
             </Property>
           </Properties>
         </Component>
@@ -170,7 +170,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="this.getCheckingBalance()" type="code"/>
+              <Connection code="Double.toString(checking.getBalance())&#xd;&#xa;" type="code"/>
             </Property>
           </Properties>
         </Component>

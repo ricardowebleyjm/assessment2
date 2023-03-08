@@ -9,11 +9,18 @@ public abstract  class Account {
     private double balance;
     private String accountType;
     private static int nextAccountNumber = 10001;
-    private static double transferFee = 5.00;
-    private static double withdrawlFee = 3.50;
+    private static double transferFee = 5.00; // Set the transferFee
+    private static double withdrawlFee = 3.50; // Set the withdrawalFee
     
     private ArrayList<Transaction> transactionHistory;
 
+    /**
+     * Constructor for the Account class takes a String accountType
+     * and a double balance as parameters, and initializes the account with the given account type,
+     * balance, an empty transaction history ArrayList
+     * @param accountType
+     * @param balance
+     */
     public Account(String accountType, double balance) {
         this.accountType = accountType;
         this.balance = balance;
@@ -22,6 +29,8 @@ public abstract  class Account {
         nextAccountNumber++;
     }
 
+    /* Accessor and Mutators */
+    
     public int getAccountNumber() {
         return accountNumber;
     }
@@ -75,7 +84,7 @@ public abstract  class Account {
     }
     
     /**
-     *
+     * Adds a new transaction to this account's transaction history.
      * @param transactionType
      * @param amount
      * @param fromAccount
@@ -85,17 +94,13 @@ public abstract  class Account {
         Transaction transaction = new Transaction(transactionType, amount, fromAccount, fee);
         transactionHistory.add(transaction);
     }
-    
-    public ArrayList<Transaction> getTransactionHistory() {
-        return transactionHistory;
-    }
 
     /**
-     *
-     * @param transactionHistory
+     * This method returns the transaction history, which is an ArrayList containing all the transactions.
+     * @return an ArrayList of Transaction objects representing the transaction history .
      */
-    public void setTransactionHistory(ArrayList<Transaction> transactionHistory) {
-        this.transactionHistory = transactionHistory;
+    public ArrayList<Transaction> getTransactionHistory() {
+        return transactionHistory;
     }
 
     /**
@@ -112,7 +117,6 @@ public abstract  class Account {
 
     /**
      * Deposits a specified amount into an account.
-     *
      * @param amount the amount to deposit
      */
     public abstract void deposit(double amount);

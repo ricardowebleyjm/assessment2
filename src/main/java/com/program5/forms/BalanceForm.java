@@ -12,7 +12,8 @@ import com.program5.entity.SavingAccount;
  * @author WebleyR
  */
 public class BalanceForm extends javax.swing.JFrame {
-    
+
+    // local variables
     private SavingAccount saving;
     private CheckingAccount checking;
 
@@ -24,17 +25,11 @@ public class BalanceForm extends javax.swing.JFrame {
     }
     
     public BalanceForm(SavingAccount saving, CheckingAccount checking) {
+        // Set the instance variables to the provided SavingAccount and CheckingAccount.
         this.saving = saving;
-        this.checking = checking; 
+        this.checking = checking;
+        // Initialize the components of the window.
         initComponents();
-    }
-    
-    private String getCheckingBalance(){
-        return Double.toString(checking.getBalance());
-    }
-    
-    private String getSavingBalance(){
-        return Double.toString(saving.getBalance());
     }
     
 
@@ -74,14 +69,16 @@ public class BalanceForm extends javax.swing.JFrame {
         lblChecking.setText("Checking Balance:");
 
         lblSavingBalance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblSavingBalance.setText(this.getSavingBalance());
+        lblSavingBalance.setText(Double.toString(saving.getBalance())
+        );
 
         lblAccountNumber.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblAccountNumber.setText(Integer.toString(saving.getAccountNumber())
         );
 
         lblCheckingBalance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblCheckingBalance.setText(this.getCheckingBalance());
+        lblCheckingBalance.setText(Double.toString(checking.getBalance())
+        );
 
         buttonCancel.setBackground(new java.awt.Color(255, 0, 0));
         buttonCancel.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,6 +160,7 @@ public class BalanceForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // close the form
         this.dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 

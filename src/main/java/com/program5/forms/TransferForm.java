@@ -25,8 +25,12 @@ public class TransferForm extends javax.swing.JFrame {
         initComponents();
     }
     public TransferForm(SavingAccount saving, CheckingAccount checking){
+
+        // Set the instance variables to the provided SavingAccount and CheckingAccount.
         this.saving = saving;
         this.checking = checking;
+
+        // Initialize the components of the window.
         initComponents();
     }
     /**
@@ -53,6 +57,8 @@ public class TransferForm extends javax.swing.JFrame {
         buttonToAcctChecking = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Transfer funds");
+        setAlwaysOnTop(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -191,37 +197,52 @@ public class TransferForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTransferActionPerformed
+
+        // parse the amount in the transfer input and save the value into transferAmt
         double transferAmt = Double.parseDouble(txtTransferAmt.getText());
+        // verify if the transferAmt input is blank of empty
         if(!txtTransferAmt.getText().isEmpty() || !txtTransferAmt.getText().isBlank()){
-            
+
+            // checking which account buttons are selected
             if(buttonFromAcctSavings.isSelected() && buttonToAcctChecking.isSelected()){
                 try {
+                    // transfer the fund to the checking account
                     saving.transfer(checking, transferAmt);
+
+                    // display a success message
                     JOptionPane.showMessageDialog(rootPane,
                         "Success, your " + checking.getAccountType() + " account balance is: "  + checking.getBalance(),  "Success", JOptionPane.INFORMATION_MESSAGE);
                     
-                } catch (InsufficientFundsException ex) {
+                } catch (InsufficientFundsException ex) { // throws an error if the account does not have enough money to cover the transaction
                     JOptionPane.showMessageDialog(rootPane, ex.getMessage(), 
                             "Insufficient Balance", JOptionPane.ERROR_MESSAGE);    
                 }
             }
+            // checking which account buttons are selected
             else if(buttonFromAcctChecking.isSelected() && buttonToAcctSavings.isSelected()){
                 try {
+                    // transfer the fund to the saving account
                     checking.transfer(saving, transferAmt);
+                    // display a success message
                     JOptionPane.showMessageDialog(rootPane,
                         "Success, your " + saving.getAccountType() + " account balance is: "  + saving.getBalance(), "Success", JOptionPane.INFORMATION_MESSAGE);
-                } catch (InsufficientFundsException ex) {
+                } catch (InsufficientFundsException ex) { // throws an error if the account does not have enough money to cover the transaction
                         JOptionPane.showMessageDialog(rootPane, ex.getMessage(), 
                             "Insufficient Balance", JOptionPane.ERROR_MESSAGE);
                 }
             }else{
+                // Prompts the user to select correct accounts if the same type of account is select
+                // for the transaction
                 JOptionPane.showMessageDialog(rootPane, "Incorrect Account Selection", 
                             "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        // close the form after the transaction is completed
+        this.dispose();
     }//GEN-LAST:event_buttonTransferActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+       // close the form
         this.dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 
@@ -230,11 +251,14 @@ public class TransferForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTransferAmtActionPerformed
 
     private void txtTransferAmtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTransferAmtKeyPressed
+        // restricting the characters that can typed in the transfer amount box
         if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
                 || (evt.getKeyChar() == KeyEvent.VK_PERIOD))
         {
+            // allow the transfer amount box at accept valid character
             txtTransferAmt.setEditable(true);
         }else{
+            // disable the transfer amount box if an invalid character is typed.
             txtTransferAmt.setEditable(false);
         }
     }//GEN-LAST:event_txtTransferAmtKeyPressed

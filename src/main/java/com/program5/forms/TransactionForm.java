@@ -28,7 +28,10 @@ public class TransactionForm extends javax.swing.JFrame {
     }
     
     public TransactionForm(SavingAccount saving, CheckingAccount checking){
+        // Initialize the components of the window.
        initComponents();
+
+        // Set the instance variables to the provided SavingAccount and CheckingAccount.
        this.saving = saving;
        this.checking = checking;
        
@@ -36,40 +39,52 @@ public class TransactionForm extends javax.swing.JFrame {
        loadData();
     }
 
+    /**
+     * Load data from the accounts into the table
+     */
     private void loadData(){
-  
-       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-       
+
+       // creates a DefaultTableModel instance
+       DefaultTableModel model = (DefaultTableModel) transactionTable.getModel();
+
+       // defining the table columns
        model.addColumn("Transaction Type");
        model.addColumn("Transaction Amount");
        model.addColumn("Account Balance");
        model.addColumn("Fee");
        model.addColumn("Account");
        model.addColumn("Date & Time");
-       
+
+       // getting transaction from the saving account
         for(Transaction transaction: saving.getTransactionHistory()){   
-            
+
+            // creates a row for each transaction
             model.addRow(new Object[]{
                 transaction.getTransactionType(),
                 transaction.getAmount(),
                 saving.getBalance(),
                 transaction.getFee(),
                 transaction.getFromAccount(), 
-                transaction.getTimestamp()} );
+                transaction.getTimestamp()
+            });
         }
-        
-        for(Transaction transaction: checking.getTransactionHistory()){   
-            
+
+        // getting transaction from the checking account
+        for(Transaction transaction: checking.getTransactionHistory()){
+
+            // creates a row for each transaction
             model.addRow(new Object[]{
                 transaction.getTransactionType(),
                 transaction.getAmount(),
                 checking.getBalance(),
                 transaction.getFee(),
                 transaction.getFromAccount(), 
-                transaction.getTimestamp()} );
+                transaction.getTimestamp()
+            });
         }
-                
-        jTable1.setModel(model);
+
+        // adding all transactions to the table
+        transactionTable.setModel(model);
          
             
     }
@@ -84,7 +99,8 @@ public class TransactionForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        transactionTable = new javax.swing.JTable();
+        buttonCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Transactions");
@@ -92,7 +108,7 @@ public class TransactionForm extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        transactionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -100,7 +116,16 @@ public class TransactionForm extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(transactionTable);
+
+        buttonCancel.setBackground(new java.awt.Color(255, 0, 0));
+        buttonCancel.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCancel.setText("CANCEL");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,7 +133,11 @@ public class TransactionForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonCancel)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -116,7 +145,9 @@ public class TransactionForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,6 +169,11 @@ public class TransactionForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // close the form
+        this.dispose();
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,8 +213,9 @@ public class TransactionForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable transactionTable;
     // End of variables declaration//GEN-END:variables
 }

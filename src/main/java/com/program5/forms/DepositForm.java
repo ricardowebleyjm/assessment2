@@ -25,9 +25,16 @@ public class DepositForm extends javax.swing.JFrame {
     public DepositForm() {
         initComponents();
     }
-    
+
+    /**
+     * @param saving
+     * @param checking
+     */
     public DepositForm(SavingAccount saving, CheckingAccount checking){
-       initComponents();
+        // Initialize the components of the window.
+        initComponents();
+
+       // Set the instance variables to the provided SavingAccount and CheckingAccount.
        this.saving = saving;
        this.checking = checking;
     }
@@ -164,40 +171,54 @@ public class DepositForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDepositAmtActionPerformed
 
     private void buttonDepositActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // check which buttons are selected
         if(buttonSavings.isSelected() || buttonChecking.isSelected()){
+        // verify if the deposit input is blank or empty
         if(!txtDepositAmt.getText().isEmpty() || !txtDepositAmt.getText().isBlank() ){
+
+            // parse the amount in the deposit input and save the value into depositAmount
             double depositAmount = Double.parseDouble(txtDepositAmt.getText());
-           if(buttonSavings.isSelected()){
+
+            // deposit the amount to the saving account if the saving button is selected
+            if(buttonSavings.isSelected()){
            saving.deposit(depositAmount);
 
+           // Show a success message if the transaction was successful
            JOptionPane.showMessageDialog(rootPane,
                    "Success, your current balance is: "  + saving.getBalance());
        }else if(buttonChecking.isSelected()){
+           // deposit the amount to the checking account if the checking button is selected
            checking.deposit(depositAmount);
 
+           // Show a success message if the transaction was successful
            JOptionPane.showMessageDialog(rootPane,
                    "Success, your current balance is: "  + checking.getBalance());
        }
+        // close the form after the transaction is completed
         this.dispose();
        }
         }else{
+            // prompts the use to select an account in no account was selected
             JOptionPane.showMessageDialog(rootPane, "Please select an account");
         }
 
     }
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {
+        // close the form
         this.dispose(); 
     }
 
     
     private void txtDepositAmtKeyPressed(java.awt.event.KeyEvent evt) {
- 
+        // restricting the characters that can typed in the deposit amount box
         if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE ) 
                 || (evt.getKeyChar() == KeyEvent.VK_PERIOD))
         {
+            // allow the deposit amount box at accept valid character
             txtDepositAmt.setEditable(true);
         }else{
+            // disable the deposit amount box if an invalid character is typed.
              txtDepositAmt.setEditable(false);
         }
     }
@@ -232,6 +253,7 @@ public class DepositForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                // creates a new instance of the DepositForm
                 var depositForm = new DepositForm();
                 depositForm.setLocationRelativeTo(null);
                 depositForm.setVisible(true);

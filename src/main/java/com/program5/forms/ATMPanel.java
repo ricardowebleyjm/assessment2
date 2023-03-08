@@ -15,19 +15,19 @@ import javax.swing.JFrame;
  */
 public class ATMPanel extends javax.swing.JFrame {
 
-    CheckingAccount checkingAccount;
-    SavingAccount savingsAccount;
+    private CheckingAccount checkingAccount;
+    private SavingAccount savingsAccount;
     /**
      * Creates new form ATMPanel
      */
     public ATMPanel() {
         initComponents();
-       
+
         // Create a checking account with an initial balance of 500
         var checking = new CheckingAccount(500);
         // Create a savings account with an initial balance of 1000
         var savings = new SavingAccount(1000);
-        
+
         savingsAccount = savings;
         checkingAccount = checking;
     }
@@ -133,61 +133,61 @@ public class ATMPanel extends javax.swing.JFrame {
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(labelOption, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonDeposit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonBalance, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(buttonTrasactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(labelOption, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
+                                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                                .addGap(17, 17, 17)
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(buttonDeposit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(buttonTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(buttonBalance, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(buttonTrasactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(buttonWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(buttonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelOption, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonTrasactions, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelOption, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(buttonTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonTrasactions, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(buttonBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("ATM Panel");
@@ -196,31 +196,42 @@ public class ATMPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDepositActionPerformed
+        // Create a new instance of the DepositForm with saving and checking accounts
         var depositForm = new DepositForm(this.savingsAccount, this.checkingAccount);
+        // set the DepositForm visible
         depositForm.setVisible(true);
     }//GEN-LAST:event_buttonDepositActionPerformed
 
     private void buttonWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWithdrawActionPerformed
+        // Create a new instance of the WithdrawForm with saving and checking accounts
         var withdrawForm = new WithdrawForm(this.savingsAccount, this.checkingAccount);
-        withdrawForm.setVisible(true);      
+        // set the WithdrawForm visible
+        withdrawForm.setVisible(true);
     }//GEN-LAST:event_buttonWithdrawActionPerformed
 
     private void buttonTransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTransferActionPerformed
+        // Create a new instance of the TransferForm with saving and checking accounts
         var transferForm = new TransferForm(this.savingsAccount, this.checkingAccount);
-        transferForm.setVisible(true); 
+        // set the TransferForm visible
+        transferForm.setVisible(true);
     }//GEN-LAST:event_buttonTransferActionPerformed
 
     private void buttonTrasactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTrasactionsActionPerformed
+        // Create a new instance of the TransactionForm with saving and checking accounts
         var transactionForm = new TransactionForm(this.savingsAccount, this.checkingAccount);
+        // set the TransactionForm visible
         transactionForm.setVisible(true);
     }//GEN-LAST:event_buttonTrasactionsActionPerformed
 
     private void buttonBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBalanceActionPerformed
-         var balanceForm = new BalanceForm(this.savingsAccount, this.checkingAccount);
+        // Create a new instance of the BalanceForm with saving and checking accounts
+        var balanceForm = new BalanceForm(this.savingsAccount, this.checkingAccount);
+        // set the BalanceForm visible
         balanceForm.setVisible(true);
     }//GEN-LAST:event_buttonBalanceActionPerformed
 
     private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
+        // Terminates the ATM
         this.dispose();
     }//GEN-LAST:event_buttonExitActionPerformed
 
@@ -231,7 +242,7 @@ public class ATMPanel extends javax.swing.JFrame {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -254,16 +265,16 @@ public class ATMPanel extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                var atmPanel = new ATMPanel();
-                atmPanel.setTitle("ATM Machine 001");
-                atmPanel.setPreferredSize(new Dimension(400, 400));
+                var atmPanel = new ATMPanel(); // creates a new instance of the ATMPanel
+                atmPanel.setTitle("ATM Machine 001"); // sets the window title
+                atmPanel.setPreferredSize(new Dimension(400, 400)); // sets the preferred window dimension
                 atmPanel.setMaximumSize(new Dimension(400,400));
-                atmPanel.setResizable(false);
-                atmPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                atmPanel.setResizable(false); // disable window resizing
+                atmPanel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // terminates the ATM when the close button is clicked
                 atmPanel.pack();
-                atmPanel.setLocationRelativeTo(null);
-                atmPanel.setVisible(true);
-                
+                atmPanel.setLocationRelativeTo(null); // position the form in the center of the screen
+                atmPanel.setVisible(true); // sets the form visible
+
             }
         });
     }

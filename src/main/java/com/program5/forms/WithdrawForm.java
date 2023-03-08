@@ -24,7 +24,10 @@ public class WithdrawForm extends javax.swing.JFrame {
         initComponents();
     }
     public WithdrawForm(SavingAccount saving, CheckingAccount checking){
+        // Initialize the components of the window.
        initComponents();
+
+       // Set the instance variables to the provided SavingAccount and CheckingAccount.
        this.saving = saving;
        this.checking = checking;
     }
@@ -154,29 +157,37 @@ public class WithdrawForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonWithdrawActionPerformed
+        // check which buttons are selected
         if(buttonSavings.isSelected() || buttonChecking.isSelected()){
+            // verify if the withdrawal input is blank or empty
             if(!txtWithdrawAmt.getText().isEmpty() || !txtWithdrawAmt.getText().isBlank() ){
+                // parse the amount in the withdrawal input and save the value into withdrawAmt
                 double withdrawAmt = Double.parseDouble(txtWithdrawAmt.getText());
+                // withdraw the amount from the saving account if the saving button is selected
                 if(buttonSavings.isSelected()){
                     try {
-                        saving.withdraw(withdrawAmt);
+                        saving.withdraw(withdrawAmt); // withdraw the amount from the saving account
+                        // show a success message if the transaction was successful
                         JOptionPane.showMessageDialog(rootPane,
                                 "Success, your current balance is: "  + saving.getBalance());
-                    } catch (InsufficientFundsException ex) {            
+                    } catch (InsufficientFundsException ex) { // throws an exception in case of insufficient balance to cover the transaction
                         JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Insufficient Balance", JOptionPane.ERROR_MESSAGE);
                     }
+                    // withdraw the amount from the checking account if the checking button is selected
                 }else if(buttonChecking.isSelected()){
                     try {
-                        checking.withdraw(withdrawAmt);
+                        checking.withdraw(withdrawAmt); // withdraw the amount from the checking account
+                        // show a success message if the transaction was successful
                         JOptionPane.showMessageDialog(rootPane,
                                 "Success, your current balance is: "  + checking.getBalance());
-                    } catch (InsufficientFundsException ex) {
+                    } catch (InsufficientFundsException ex) { // throws an exception in case of insufficient balance to cover the transaction
                         JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Insufficient Balance", JOptionPane.ERROR_MESSAGE);
                     }
                 }
                 this.dispose();
             }
         }else{
+            // prompts the use to select an account in no account was selected
             JOptionPane.showMessageDialog(rootPane, "Please select an account");
         }
 
@@ -191,11 +202,14 @@ public class WithdrawForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtWithdrawAmtActionPerformed
 
     private void txtWithdrawAmtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWithdrawAmtKeyPressed
+        // restricting the characters that can typed in the withdrawal amount box
         if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
                 || (evt.getKeyChar() == KeyEvent.VK_PERIOD))
         {
+            // allow the withdrawal amount box at accept valid character
             txtWithdrawAmt.setEditable(true);
         }else{
+            // disable the withdrawal amount box if an invalid character is typed.
              txtWithdrawAmt.setEditable(false);
         }
     }//GEN-LAST:event_txtWithdrawAmtKeyPressed
@@ -233,7 +247,7 @@ public class WithdrawForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                var withdrawlForm = new WithdrawForm();
+                var withdrawlForm = new WithdrawForm(); // creates a new instance of the WithdrawForm
                 withdrawlForm.setLocationRelativeTo(null);
                 withdrawlForm.setVisible(true);
             }
