@@ -8,8 +8,6 @@ import com.program5.entity.CheckingAccount;
 import com.program5.entity.SavingAccount;
 import com.program5.exceptions.InsufficientFundsException;
 import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +17,7 @@ import javax.swing.JOptionPane;
 public class TransferForm extends javax.swing.JFrame {
     private SavingAccount saving;
     private CheckingAccount checking;
+    
     /**
      * Creates new form TransferForm
      */
@@ -54,6 +53,7 @@ public class TransferForm extends javax.swing.JFrame {
         buttonToAcctChecking = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -230,7 +230,9 @@ public class TransferForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTransferAmtActionPerformed
 
     private void txtTransferAmtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTransferAmtKeyPressed
-        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+                || (evt.getKeyChar() == KeyEvent.VK_PERIOD))
+        {
             txtTransferAmt.setEditable(true);
         }else{
             txtTransferAmt.setEditable(false);
@@ -267,7 +269,9 @@ public class TransferForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TransferForm().setVisible(true);
+               var transferForm=  new TransferForm();
+               transferForm.setLocationRelativeTo(null);
+               transferForm.setVisible(true);
             }
         });
     }

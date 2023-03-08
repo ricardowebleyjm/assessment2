@@ -3,7 +3,6 @@ package com.program5.entity;
 import com.program5.exceptions.InsufficientFundsException;
 
 public class SavingAccount extends Account{
-    //private final double WITHDRAWAL_FEE = 5.0;
 
     public SavingAccount(double balance) {
         super("Savings", balance);

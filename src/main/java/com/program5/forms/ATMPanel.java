@@ -4,7 +4,6 @@
  */
 package com.program5.forms;
 
-import com.program5.entity.Account;
 import com.program5.entity.CheckingAccount;
 import com.program5.entity.SavingAccount;
 import java.awt.Dimension;
@@ -23,14 +22,14 @@ public class ATMPanel extends javax.swing.JFrame {
      */
     public ATMPanel() {
         initComponents();
-                        // Create a checking account with an initial balance of 500
+       
+        // Create a checking account with an initial balance of 500
         var checking = new CheckingAccount(500);
         // Create a savings account with an initial balance of 1000
         var savings = new SavingAccount(1000);
         
         savingsAccount = savings;
         checkingAccount = checking;
-        /* Set the Nimbus look and feel */
     }
 
     /**
@@ -48,6 +47,8 @@ public class ATMPanel extends javax.swing.JFrame {
         buttonWithdraw = new javax.swing.JButton();
         buttonTransfer = new javax.swing.JButton();
         buttonTrasactions = new javax.swing.JButton();
+        buttonBalance = new javax.swing.JButton();
+        buttonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -61,29 +62,30 @@ public class ATMPanel extends javax.swing.JFrame {
         labelOption.setText("                   SELECT AN OPTION");
         labelOption.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        buttonDeposit.setBackground(new java.awt.Color(0, 153, 255));
+        buttonDeposit.setBackground(new java.awt.Color(102, 204, 0));
         buttonDeposit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonDeposit.setForeground(new java.awt.Color(255, 255, 255));
         buttonDeposit.setText("DEPOSIT");
         buttonDeposit.setToolTipText("Deporit");
+        buttonDeposit.setMaximumSize(new java.awt.Dimension(114, 27));
         buttonDeposit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonDepositActionPerformed(evt);
             }
         });
 
-        buttonWithdraw.setBackground(new java.awt.Color(0, 153, 255));
+        buttonWithdraw.setBackground(new java.awt.Color(153, 153, 0));
         buttonWithdraw.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonWithdraw.setForeground(new java.awt.Color(255, 255, 255));
         buttonWithdraw.setText("WITHDRAW");
-        buttonWithdraw.setToolTipText("Deporit");
+        buttonWithdraw.setToolTipText("WITHDRAW");
         buttonWithdraw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonWithdrawActionPerformed(evt);
             }
         });
 
-        buttonTransfer.setBackground(new java.awt.Color(0, 153, 255));
+        buttonTransfer.setBackground(new java.awt.Color(153, 204, 0));
         buttonTransfer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonTransfer.setForeground(new java.awt.Color(255, 255, 255));
         buttonTransfer.setText("TRANSFER");
@@ -94,14 +96,37 @@ public class ATMPanel extends javax.swing.JFrame {
             }
         });
 
-        buttonTrasactions.setBackground(new java.awt.Color(0, 153, 255));
+        buttonTrasactions.setBackground(new java.awt.Color(204, 204, 0));
         buttonTrasactions.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         buttonTrasactions.setForeground(new java.awt.Color(255, 255, 255));
         buttonTrasactions.setText("TRANSACTIONS");
-        buttonTrasactions.setToolTipText("Deporit");
+        buttonTrasactions.setToolTipText("TRANSACTIONS");
+        buttonTrasactions.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonTrasactions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonTrasactionsActionPerformed(evt);
+            }
+        });
+
+        buttonBalance.setBackground(new java.awt.Color(0, 153, 255));
+        buttonBalance.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonBalance.setForeground(new java.awt.Color(255, 255, 255));
+        buttonBalance.setText("Balances");
+        buttonBalance.setToolTipText("TRANSFER");
+        buttonBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBalanceActionPerformed(evt);
+            }
+        });
+
+        buttonExit.setBackground(new java.awt.Color(255, 51, 51));
+        buttonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonExit.setForeground(new java.awt.Color(255, 255, 255));
+        buttonExit.setText("EXIT");
+        buttonExit.setToolTipText("EXIT");
+        buttonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExitActionPerformed(evt);
             }
         });
 
@@ -116,15 +141,15 @@ public class ATMPanel extends javax.swing.JFrame {
                         .addComponent(labelOption, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(buttonTransfer)
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonTrasactions))
-                            .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(buttonWithdraw)))
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonDeposit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonTransfer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonBalance, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(buttonTrasactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonWithdraw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -133,15 +158,19 @@ public class ATMPanel extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelOption, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonWithdraw, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonTransfer, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonTrasactions, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,10 +184,10 @@ public class ATMPanel extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("ATM Panel");
@@ -185,6 +214,15 @@ public class ATMPanel extends javax.swing.JFrame {
         var transactionForm = new TransactionForm(this.savingsAccount, this.checkingAccount);
         transactionForm.setVisible(true);
     }//GEN-LAST:event_buttonTrasactionsActionPerformed
+
+    private void buttonBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBalanceActionPerformed
+         var balanceForm = new BalanceForm(this.savingsAccount, this.checkingAccount);
+        balanceForm.setVisible(true);
+    }//GEN-LAST:event_buttonBalanceActionPerformed
+
+    private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,7 +269,9 @@ public class ATMPanel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBalance;
     private javax.swing.JButton buttonDeposit;
+    private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonTransfer;
     private javax.swing.JButton buttonTrasactions;
     private javax.swing.JButton buttonWithdraw;

@@ -6,7 +6,6 @@ package com.program5.forms;
 
 import com.program5.entity.CheckingAccount;
 import com.program5.entity.SavingAccount;
-import com.program5.entity.Transaction;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -21,9 +20,8 @@ public class DepositForm extends javax.swing.JFrame {
 
     private SavingAccount saving;
     private CheckingAccount checking;
-    /**
-     * Creates new form DepositForm
-     */
+   
+    
     public DepositForm() {
         initComponents();
     }
@@ -55,6 +53,9 @@ public class DepositForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Deposit Form");
         setAlwaysOnTop(true);
+        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(400, 400));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -65,6 +66,11 @@ public class DepositForm extends javax.swing.JFrame {
         txtDepositAmt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDepositAmtActionPerformed(evt);
+            }
+        });
+        txtDepositAmt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDepositAmtKeyPressed(evt);
             }
         });
 
@@ -187,7 +193,9 @@ public class DepositForm extends javax.swing.JFrame {
     
     private void txtDepositAmtKeyPressed(java.awt.event.KeyEvent evt) {
  
-        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE ) 
+                || (evt.getKeyChar() == KeyEvent.VK_PERIOD))
+        {
             txtDepositAmt.setEditable(true);
         }else{
              txtDepositAmt.setEditable(false);
@@ -224,7 +232,9 @@ public class DepositForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DepositForm().setVisible(true);
+                var depositForm = new DepositForm();
+                depositForm.setLocationRelativeTo(null);
+                depositForm.setVisible(true);
             }
         });
     }

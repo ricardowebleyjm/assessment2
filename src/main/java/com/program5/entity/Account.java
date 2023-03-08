@@ -5,9 +5,9 @@ import com.program5.exceptions.InsufficientFundsException;
 import java.util.ArrayList;
 
 public abstract  class Account {
-    int accountNumber;
+    private int accountNumber;
     private double balance;
-    String accountType;
+    private String accountType;
     private static int nextAccountNumber = 10001;
     private static double transferFee = 5.00;
     private static double withdrawlFee = 3.50;

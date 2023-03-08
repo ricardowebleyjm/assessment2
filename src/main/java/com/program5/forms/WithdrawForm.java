@@ -8,8 +8,6 @@ import com.program5.entity.CheckingAccount;
 import com.program5.entity.SavingAccount;
 import com.program5.exceptions.InsufficientFundsException;
 import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -193,7 +191,9 @@ public class WithdrawForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtWithdrawAmtActionPerformed
 
     private void txtWithdrawAmtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWithdrawAmtKeyPressed
-        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)){
+        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || (evt.getKeyChar() == KeyEvent.VK_BACK_SPACE)
+                || (evt.getKeyChar() == KeyEvent.VK_PERIOD))
+        {
             txtWithdrawAmt.setEditable(true);
         }else{
              txtWithdrawAmt.setEditable(false);
@@ -233,7 +233,9 @@ public class WithdrawForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new WithdrawForm().setVisible(true);
+                var withdrawlForm = new WithdrawForm();
+                withdrawlForm.setLocationRelativeTo(null);
+                withdrawlForm.setVisible(true);
             }
         });
     }

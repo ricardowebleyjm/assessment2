@@ -10,6 +10,8 @@ public class Transaction {
     private String timestamp;
     private double fee;
 
+    public Transaction(){}
+    
     public Transaction(String transactionType, double amount, String fromAccount, double fee) {
         this.transactionType = transactionType;
         this.amount = amount;
