@@ -4,6 +4,10 @@ import com.program5.exceptions.InsufficientFundsException;
 
 import java.util.ArrayList;
 
+
+/**
+ * Account class contains all information relating to the different Accounts
+ */
 public abstract  class Account {
     private int accountNumber;
     private double balance;
@@ -78,8 +82,8 @@ public abstract  class Account {
      * @param amount the amount of the transaction
      * @param fromAccount the account from which the transaction was initiated
      */
-    public void addTransaction(String transactionType, double amount, String fromAccount) {
-        Transaction transaction = new Transaction(transactionType, amount, fromAccount);
+    public void addTransaction(String transactionType, double amount, String fromAccount, double accountBalance) {
+        Transaction transaction = new Transaction(transactionType, amount, fromAccount, accountBalance);
         transactionHistory.add(transaction);
     }
     
@@ -90,8 +94,8 @@ public abstract  class Account {
      * @param fromAccount
      * @param fee
      */
-    public void addTransaction(String transactionType, double amount, String fromAccount, double fee) {
-        Transaction transaction = new Transaction(transactionType, amount, fromAccount, fee);
+    public void addTransaction(String transactionType, double amount, String fromAccount, double fee, double accountBalance) {
+        Transaction transaction = new Transaction(transactionType, amount, fromAccount, fee, accountBalance);
         transactionHistory.add(transaction);
     }
 
@@ -112,7 +116,7 @@ public abstract  class Account {
     public void transfer(Account account, double amount) throws InsufficientFundsException {
         withdraw(amount);
         account.deposit(amount);
-        addTransaction("Transfer", amount, account.getAccountType(), transferFee);
+        addTransaction("Transfer", amount, account.getAccountType(), transferFee, account.getBalance());
     }
 
     /**

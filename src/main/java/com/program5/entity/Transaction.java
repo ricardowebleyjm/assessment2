@@ -9,6 +9,15 @@ public class Transaction {
     private  String  fromAccount;
     private String timestamp;
     private double fee;
+    private double accountBalance;
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public void setAccountBalance(double accountBalance) {
+        this.accountBalance = accountBalance;
+    }
 
     public Transaction(){}
 
@@ -22,12 +31,13 @@ public class Transaction {
      * involved in the transaction
      * @param fee amount charged for the transaction.
      */
-    public Transaction(String transactionType, double amount, String fromAccount, double fee) {
+    public Transaction(String transactionType, double amount, String fromAccount, double fee, double accountBalance) {
         this.transactionType = transactionType;
         this.amount = amount;
         this.fromAccount = fromAccount;
         this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
         this.fee = fee;
+        this.accountBalance = accountBalance;
     }
 
     /**
@@ -39,11 +49,12 @@ public class Transaction {
      * @param fromAccount  fromAccount a String representing the account type(Saving, Checking etc.)
      * involved in the transaction
      */
-    public Transaction(String transactionType, double amount, String fromAccount) {
+    public Transaction(String transactionType, double amount, String fromAccount,  double accountBalance) {
         this.transactionType = transactionType;
         this.amount = amount;
         this.fromAccount = fromAccount;
         this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        this.accountBalance = accountBalance;
     }
 
     /*Accessor and Mutators */

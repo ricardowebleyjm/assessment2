@@ -18,7 +18,7 @@ public class CheckingAccount extends Account{
     public void deposit(double amount) {
         double newBalance = getBalance() + amount;
         setBalance(newBalance);
-        addTransaction("Deposit", amount, getAccountType());
+        addTransaction("Deposit", amount, getAccountType(), getBalance());
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CheckingAccount extends Account{
         } else {
             double newBalance = getBalance() - totalWithdrawAmount;
             setBalance(newBalance);
-            addTransaction("Withdraw", amount, getAccountType(),getTransferFee() );
+            addTransaction("Withdraw", amount, getAccountType(),getTransferFee(), getBalance());
         }
     }
 }

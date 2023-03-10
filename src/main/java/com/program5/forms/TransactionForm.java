@@ -62,7 +62,7 @@ public class TransactionForm extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 transaction.getTransactionType(),
                 transaction.getAmount(),
-                saving.getBalance(),
+                transaction.getAccountBalance(),
                 transaction.getFee(),
                 transaction.getFromAccount(), 
                 transaction.getTimestamp()
@@ -76,7 +76,7 @@ public class TransactionForm extends javax.swing.JFrame {
             model.addRow(new Object[]{
                 transaction.getTransactionType(),
                 transaction.getAmount(),
-                checking.getBalance(),
+                transaction.getAccountBalance(),
                 transaction.getFee(),
                 transaction.getFromAccount(), 
                 transaction.getTimestamp()

@@ -7,6 +7,6 @@ public interface BookInterface {
     void sortBooksByAuthor();
     void sortBooksByISBN();
     void sortBooksByPublisher();
-   void sortBooksByReleaseYear();
-   void initiliseBookList();
+    void sortBooksByReleaseYear();
+    void initiliseBookList();
 }
